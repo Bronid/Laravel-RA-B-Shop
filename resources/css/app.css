@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&family=Source+Sans+Pro&display=swap');
+
+
+
+/* Сброс стилей */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, figcaption, blockquote, dl, dd {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Базовые стили для контейнера */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  body {
+    color: #000000;
+    background-color: #B6B6B6;
+    font-family: Raleway, sans-serif;
+    font-size: 16px;
+  }
+  
+  /* Стили для заголовков */
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Стили для ссылок */
+  a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Стили для кнопок */
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #98CE00;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #004499;
+  }
+  
+  /* Стили для списков */
+  ul, ol {
+    margin-left: 20px;
+  }
+  
+  /* Стили для изображений */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Стили для формы поиска */
+  .search-form {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-form input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .search-form button {
+    padding: 5px 10px;
+    background-color: #7C7A7A;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    margin-left: 10px;
+  }
+  
+  /* Стили для таблиц */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table th, table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+
+  .nav-ico-1 {
+    width: 25px;
+    height: 25px;
+  }
+
+
+  .nav-ico-2 {
+    width: 40px;
+    height: 40px;
+  }
+.btn-outline-gr{
+    color: #98CE00;
+    border-color: #98CE00;
+}
+
+.btn-gr{
+  background-color: #98CE00;
+  color: #fff;
+  border-color: #98CE00;
+}
+.btn-gr:hover
+{
+  background-color: #8cbe00; 
+  color: #fff;
+}
+
+.checkbox-gr{
+  border-color: #98CE00;
+}
+
+.btn-outline-gr:hover {
+    background-color: #98CE00;
+  }
+.btn-cart {
+    color: #98CE00;
+    transition: #98CE00 0.3s ease;
+    border: 1px double #000000;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #98CE00;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    border: 1px double #000000
+  }
+.btn-cart:hover
+{
+  background-color: #8cbe00; 
+}
+  .catalog
+  {
+    background-color: #FFFFFF;
+  }
+  .product-title{
+    color: #000000;
+    font-family: Raleway, sans-serif;
+  
+  }
+  .product-price-1{
+    font-weight: bold;
+    color: #000000;
+    font-family: Source Sans Pro, sans-serif;
+    font-size: 16px;
+  }
+
+  .product-price-2{
+    font-weight: bold;
+    color: #000000;
+    font-family: Source Sans Pro, sans-serif;
+    font-size: 25px;
+  }
+
+  .form-check-input:checked {
+    background-color: #98CE00;
+    border-color: #98CE00;
+  
+}
+.form-control-sm 
+{
+width: 50px;
+height: auto;
+}

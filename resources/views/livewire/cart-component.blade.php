@@ -26,7 +26,7 @@
                 <a> {{$item->qty}} </a>
                 <div class="btn" wire:click.prevent="increaseQuantity('{{ $item->rowId }}')">+</div>
                 </div>
-                <br><button class="btn btn-danger">Delete</button>
+                <br><button class="btn btn-danger" wire:click.prevent="destroy('{{ $item->rowId }}')">Delete</button>
               </div>
             </div>
           </div>

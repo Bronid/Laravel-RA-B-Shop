@@ -21,11 +21,8 @@
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      @if(Route::is('index'))
-      <form class="d-flex justify-content-center">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-gr" type="submit"><img src="images/icons/search.png"></img></button>
-      </form>
+      @if(Route::is('index') || Route::is('search'))
+      @livewire('header-search-component')
       @endif
       <div id="navbarSupportedContent">
         <ul class="navbar-nav me-auto justify-content-end">

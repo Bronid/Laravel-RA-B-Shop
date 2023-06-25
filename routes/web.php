@@ -1,11 +1,14 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Livewire\AddProductComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\DetailsComponent;
 use App\Http\Livewire\HomeComponent;
+use App\Http\Livewire\SearchComponent;
+use App\Http\Livewire\Seller\SellerDashboardComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use Illuminate\Support\Facades\Route;
 
@@ -28,12 +31,18 @@ Route::get('/cart', CartComponent::class)->name('cart');
 
 Route::get('/checkout', CheckoutComponent::class)->name('checkout');
 
+Route::get('/search', SearchComponent::class)->name('search');
+
 Route::middleware(['auth'])->group(function() {
-    Route::get('/user/dashboard', UserDashboardComponent::class)->name('user.dashboard');
+    Route::get('/dashboard', UserDashboardComponent::class)->name('user.dashboard');
 });
 
 Route::middleware(['auth', 'authadmin'])->group(function() {
-    Route::get('/admin/dashboard', AdminDashboardComponent::class)->name('admin.dashboard');
+    Route::get('/dashboard/addproduct', AdminDashboardComponent::class)->name('admin.dashboard');
+});
+
+Route::middleware(['auth', 'authseller'])->group(function() {
+    Route::get('/dashboard/addproduct', AddProductComponent::class)->name('addproduct.dashboard');
 });
 
 //Route::middleware('auth')->group(function () {

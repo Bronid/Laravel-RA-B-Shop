@@ -12,7 +12,7 @@ class HomeComponent extends Component
 
     public function render()
     {
-        $products = Product::paginate(1000);
+        $products = Product::paginate();
         return view('livewire.home-component', ['products' => $products]);
     }
 }

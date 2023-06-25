@@ -14,7 +14,7 @@
 
   
 
-        <a href="#" class="btn btn-gr mt-3">Add to cart</a>
+        <a href="#" class="btn btn-gr mt-3 mb-3" wire:click.prevent="store({{$product->id}}, '{{$product->name}}', {{$product->price}})">Add to cart</a>
       </div>
     </div>
 

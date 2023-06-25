@@ -3,9 +3,21 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Cart;
 
 class CartComponent extends Component
 {
+
+    public function increaseQuantity($rowId) {
+        $product = Cart::get($rowId);
+        Cart::update($rowId, $product->qty + 1);
+    }
+
+    public function decreaseQuantity($rowId) {
+        $product = Cart::get($rowId);
+        Cart::update($rowId, $product->qty - 1);
+    }
+
     public function render()
     {
         return view('livewire.cart-component');

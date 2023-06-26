@@ -32,7 +32,7 @@
           @auth
           @if(Auth::user()->role == "admin")
             <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{ route('user.dashboard') }}"><img class="nav-ico-2"
+            <a class="nav-link active" aria-current="page" href="{{ route('admin.dashboard') }}"><img class="nav-ico-2"
                 src="../../images/icons/account.png"></img></a>
           </li>
           @else

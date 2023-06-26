@@ -1,4 +1,7 @@
 <div class="container-fluid mt-5">
+@if(Session::has('message_error'))
+        <div class="alert alert-danger" role="alert">{{ Session::get('message_error') }}</div>
+    @endif
       <div class="row g-2">
 
       @foreach($products as $product)

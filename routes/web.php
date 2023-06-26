@@ -5,7 +5,9 @@ use App\Http\Livewire\AddProductComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CheckoutComponent;
+use App\Http\Livewire\DeleteProductComponent;
 use App\Http\Livewire\DetailsComponent;
+use App\Http\Livewire\EditProductComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\SearchComponent;
 use App\Http\Livewire\Seller\SellerDashboardComponent;
@@ -38,11 +40,14 @@ Route::middleware(['auth'])->group(function() {
 });
 
 Route::middleware(['auth', 'authadmin'])->group(function() {
-    Route::get('/dashboard/addproduct', AdminDashboardComponent::class)->name('admin.dashboard');
+    Route::get('/dashboard/addproduct', AddProductComponent::class)->name('addproduct.dashboard');
+    Route::get('/dashboard/editproduct/{product_id}', EditProductComponent::class)->name('editproduct.dashboard');
 });
 
 Route::middleware(['auth', 'authseller'])->group(function() {
     Route::get('/dashboard/addproduct', AddProductComponent::class)->name('addproduct.dashboard');
+    Route::get('/dashboard/editproduct/{product_id}', EditProductComponent::class)->name('editproduct.dashboard');
+    Route::get('/dashboard/deleteproduct/{product_id}', DeleteProductComponent::class)->name('deleteproduct.dashboard');
 });
 
 //Route::middleware('auth')->group(function () {

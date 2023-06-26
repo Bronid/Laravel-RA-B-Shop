@@ -57,20 +57,20 @@
             @if($product->user_id == Auth::user()->id)
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 Name: "{{ $product->name }}" |
-                Price: {{ $product->price }}zł |
+                Price: {{ $product->price }} zł |
                 Quantity: {{ $product->quantity }}
                 <div>
-                  <button class="btn btn-danger btn-sm me-2">Delete</button>
-                  <button class="btn btn-gr btn-sm">More Info</button>
+                  <a class="btn btn-danger btn-sm me-2" href="{{ route('deleteproduct.dashboard', ['product_id'=>$product->id]) }}">Delete</a>
+                  <a class="btn btn-gr btn-sm" href="{{ route('editproduct.dashboard', ['product_id'=>$product->id]) }}">Edit</a>
                 </div>
               </li>
             @endif
             @endforeach  
-            <a class="btn-primary d-flex justify-content-center" href="{{ route('addproduct.dashboard') }}">Add new product</button>
+            <a class="btn-primary d-flex justify-content-center" href="{{ route('addproduct.dashboard') }}">Add new product</>
             </ul>
           </div>
         </div>
       </div>
       @endif
     </div>
-  </div>
+</div>

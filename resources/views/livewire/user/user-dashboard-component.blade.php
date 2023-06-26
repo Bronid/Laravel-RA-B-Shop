@@ -46,6 +46,26 @@
         </div>
       </div>
 
+      @if(Auth::user()->role == "user")
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Transaction list</h5>
+            <ul class="list-group">
+      @foreach($transaction_groups as $transaction_group)
+      @if($transaction_group->buyer_user_id == Auth::user()->id)
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+                Date: "{{ $transaction_group->created_at }}" |
+                Total: {{ $transaction_group->total }} zł |
+                <div>
+                  <a class="btn btn-gr btn-sm" href="#">More info</a>
+                </div>
+              </li>
+        @endif
+        @endforeach  
+        @endif
+
+
       @if(Auth::user()->role == 'seller')
       <div class="col-md-8">
         <div class="card">

@@ -1,9 +1,15 @@
 <div class="container">
     <h1>Cart</h1>
 
-    @if(Session::has('success_message'))
+    @if(Session::has('message'))
     <div class='alert alert-success'>
       <strong>Success | {{Session::get('success_message')}}</strong>
+    </div>
+    @endif
+
+    @if(Session::has('message_error'))
+    <div class='alert alert-danger'>
+      <strong>Error | {{Session::get('message_error')}}</strong>
     </div>
     @endif
     
@@ -43,7 +49,7 @@
           <div class="card-body">
             <h5 class="card-title">Number of products: {{Cart::count()}}</h5>
             <h5 class="card-title">Summary: {{Cart::subtotal()}}zł</h5><h5 class="product-price-2 mb-3">
-            <a href="#" class="btn btn-gr">Proceed to Checkout</a>
+            <a href="{{ route('checkout') }}" class="btn btn-gr">Buy</a>
           </div>
         </div>
         

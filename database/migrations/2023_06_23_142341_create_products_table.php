@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('short_discription')->nullable();
             $table->text('discription')->nullable();
-            $table->decimal('price', 8, 2);
+            $table->float('price');
             $table->string('photo')->nullable();
             $table->unsignedInteger('quantity')->default(5);
             $table->bigInteger('user_id')->unsigned()->nullable();

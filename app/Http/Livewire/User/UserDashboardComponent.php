@@ -5,6 +5,7 @@ namespace App\Http\Livewire\User;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Product;
+use App\Models\TransactionGroup;
 
 class UserDashboardComponent extends Component
 {
@@ -13,6 +14,7 @@ class UserDashboardComponent extends Component
     public function render()
     {
         $products = Product::paginate();
-        return view('livewire.user.user-dashboard-component', ['products' => $products]);
+        $transaction_groups = TransactionGroup::paginate();
+        return view('livewire.user.user-dashboard-component', ['products' => $products, 'transaction_groups' => $transaction_groups]);
     }
 }

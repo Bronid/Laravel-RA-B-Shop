@@ -42,6 +42,7 @@ Route::middleware(['auth'])->group(function() {
 Route::middleware(['auth', 'authadmin'])->group(function() {
     Route::get('/dashboard/addproduct', AddProductComponent::class)->name('addproduct.dashboard');
     Route::get('/dashboard/editproduct/{product_id}', EditProductComponent::class)->name('editproduct.dashboard');
+    Route::get('/dashboard/deleteproduct/{product_id}', DeleteProductComponent::class)->name('deleteproduct.dashboard');
 });
 
 Route::middleware(['auth', 'authseller'])->group(function() {

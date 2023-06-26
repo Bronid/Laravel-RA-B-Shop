@@ -21,20 +21,7 @@
     
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Payment Method</h5>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="paymentMethod" id="creditCardRadio" checked>
-          <label class="form-check-label" for="creditCardRadio">
-            Credit Card
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="paymentMethod" id="paypalRadio">
-          <label class="form-check-label" for="paypalRadio">
-            PayPal
-          </label>
-        </div>
-        <button type="submit" class="btn btn-gr mt-3">Place Order</button>
+        <button type="submit" class="btn btn-gr d-flex">Place Order</button>
       </div>
     </div>
   </div>

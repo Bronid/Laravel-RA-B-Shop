@@ -47,8 +47,11 @@
               </div>
 
               <div class="mb-3">
-                <label for="photos" class="form-label">Photos</label>
-                <input type="file" class="form-control" id="photos" multiple>
+                <label for="image" class="form-label">Photo</label>
+                <input type="file" class="form-control" id="image" wire:model="image">
+                @error('image')
+                    <p class="text-danger">{{$message}}</p>
+                @enderror
               </div>
 
               <div class="d-grid">

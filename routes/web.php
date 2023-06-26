@@ -15,6 +15,7 @@ use App\Http\Livewire\EditProductComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\SearchComponent;
 use App\Http\Livewire\Seller\SellerDashboardComponent;
+use App\Http\Livewire\TransactionComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use App\Http\Livewire\UserProfileComponent;
 use Illuminate\Support\Facades\Route;
@@ -44,6 +45,7 @@ Route::get('/search', SearchComponent::class)->name('search');
 
 Route::middleware(['auth'])->group(function() {
     Route::get('/dashboard', UserDashboardComponent::class)->name('user.dashboard');
+    Route::get('/transaction/{id}', TransactionComponent::class)->name('transaction');
 });
 
 Route::middleware(['auth', 'authadmin'])->group(function() {

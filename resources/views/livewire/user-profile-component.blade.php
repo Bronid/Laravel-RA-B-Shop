@@ -17,13 +17,31 @@
                 <span>Role:</span>
                 <span>{{ $user->role }}</span>
               </li>
-              <li class="list-group-item d-flex justify-content-between">
-                <span>Balance:</span>
-                <span>{{ $user->balance }}</span>
-              </li>
             </ul>
           </div>
         </div>
       </div>
+
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ $user->name }} Product list</h5>
+            <ul class="list-group">
+
+            @foreach($products as $product)
+            @if($product->user_id == $user->id)
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Name: "{{ $product->name }}" |
+                Price: {{ $product->price }} zł |
+                Quantity: {{ $product->quantity }}
+              </li>
+            @endif
+            @endforeach  
+            <a class="btn-primary d-flex justify-content-center" href="{{ route('product.details', ['id' => $product->id]) }}">Link</a>
+            </ul>
+          </div>
+        </div>
+      </div>
+
     </div>
 </div>

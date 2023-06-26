@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Product;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -13,6 +14,7 @@ class AddProductComponent extends Component
     public $disc;
     public $price;
     public $quantity;
+    public $image;
 
     public function updated($fields){
         $this->validateOnly($fields, [
@@ -36,6 +38,9 @@ class AddProductComponent extends Component
         $product->discription = $this->disc;
         $product->price = $this->price;
         $product->quantity = $this->quantity;
+        $imageName = Carbon::now()->timestamp.'.'.$this->image->extension();
+        $this->image->saveAs('products', $imageName);
+        $product->photo = $imageName;
         $product->user_id = Auth::user()->id;
         $product->save();   
         session()->flash('message', 'Product has been created succesfully!');

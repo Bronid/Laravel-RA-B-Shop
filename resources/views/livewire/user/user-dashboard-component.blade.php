@@ -58,7 +58,7 @@
                 Date: "{{ $transaction_group->created_at }}" |
                 Total: {{ $transaction_group->total }} zł |
                 <div>
-                  <a class="btn btn-gr btn-sm" href="#">More info</a>
+                  <a class="btn btn-gr btn-sm" href="{{ route('transaction', ['id'=>$transaction_group->id]) }}">More info</a>
                 </div>
               </li>
         @endif
@@ -86,11 +86,27 @@
               </li>
             @endif
             @endforeach  
-            <a class="btn-primary d-flex justify-content-center" href="{{ route('addproduct.dashboard') }}">Add new product</>
+            <a class="btn-primary d-flex justify-content-center" href="{{ route('addproduct.dashboard') }}">Add new product</a>
             </ul>
           </div>
         </div>
       </div>
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Transaction list</h5>
+            <ul class="list-group">
+            @foreach($transactions as $transaction)
+            @if($transaction->seller_user_id == Auth::user()->id)
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Name: "{{ $transaction->product_name }}" |
+                Quantity: {{ $transaction->quantity }}
+                Total: {{ $transaction->price * $transaction->quantity }} zł |
+                Data: {{ $transaction->created_at }}
+            </li>
+            @endif
+            @endforeach
+
       @endif
     </div>
 </div>

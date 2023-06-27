@@ -14,13 +14,15 @@ class EditProductComponent extends Component
     public $disc;
     public $price;
     public $quantity;
+    public $photo;
 
     public function updated($fields){
         $this->validateOnly($fields, [
             'name'=>'required',
             'short_disc'=>'required',
             'price'=>'required|numeric',
-            'quantity'=>'required|numeric|min:1'
+            'quantity'=>'required|numeric|min:1',
+            'photo'=>'required'
         ]);
     }
 
@@ -29,7 +31,8 @@ class EditProductComponent extends Component
             'name'=>'required',
             'short_disc'=>'required',
             'price'=>'required|numeric',
-            'quantity'=>'required|numeric|min:1'
+            'quantity'=>'required|numeric|min:1',
+            'photo'=>'required'
         ]);
         $product = Product::find($this->product_id);
         $product->name = $this->name;
@@ -37,6 +40,11 @@ class EditProductComponent extends Component
         $product->discription = $this->disc;
         $product->price = $this->price;
         $product->quantity = $this->quantity;
+
+        $photoName = Carbon::now()->timestamp.'.'.$this->photo->extension();
+        $this->photo->storeAs('products', $photoName);
+        $product->photo = $photoName;
+
         $product->user_id = Auth::user()->id;
         $product->save();   
         session()->flash('message', 'Product has been updated succesfully!');
@@ -53,6 +61,7 @@ class EditProductComponent extends Component
             $this->disc = $product->discription;
             $this->price = $product->price;
             $this->quantity = $product->quantity;
+            $this->photo = $product->photo;
         }
         else {
             session()->flash('message_error', 'You do not have permissions for this product!');

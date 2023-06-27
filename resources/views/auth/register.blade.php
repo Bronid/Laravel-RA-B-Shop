@@ -40,18 +40,12 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="termsCheck">
-          <label class="form-check-label" for="termsCheck">
-            I agree to the terms and conditions
-          </label>
-        </div>
-        
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="privacyCheck">
-          <label class="form-check-label" for="privacyCheck">
-            I agree to the privacy policy
-          </label>
+        <div class="mb-3 mt-4">
+          <select class="form-select" id="role" :value="__('Role')" type="role" name="role" :value="old('role')">
+            <option selected disabled>Select role</option>
+            <option value="user">user</option>
+            <option value="seller">seller</option>
+          </select>
         </div>
 
         <div class="flex items-center justify-end mt-4">
@@ -59,7 +53,7 @@
                 {{ __('Already registered?') }}
             </a>
             <br>
-            <x-primary-button class="ml-4">
+            <x-primary-button class="btn btn-gr mt-3">
                 {{ __('Register') }}
             </x-primary-button>
         </div>

@@ -27,7 +27,7 @@
       <div id="navbarSupportedContent">
         <ul class="navbar-nav me-auto justify-content-end">
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('cart') }}"><img class="nav-ico-2" src="images/icons/cart.png"></img></a>
+            <a class="nav-link" href="{{ route('cart') }}"><img class="nav-ico-2" src="../../images/icons/cart.png"></img></a>
           </li>
           @auth
           @if(Auth::user()->role == "admin")
@@ -45,7 +45,7 @@
           <form method="POST" action="{{route('logout')}}">
             @csrf
             <a class="nav-link active" aria-current="page" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
-              <img class="nav-ico-2"src="../../images/icons/account.png"></img>
+              <img class="nav-ico-2"src="../../images/icons/logout.png"></img>
             </a>
               </form>
           </li>

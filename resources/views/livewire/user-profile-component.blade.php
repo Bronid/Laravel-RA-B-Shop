@@ -34,10 +34,10 @@
                 Name: "{{ $product->name }}" |
                 Price: {{ $product->price }} zł |
                 Quantity: {{ $product->quantity }}
+                <a class="btn-primary btn-sm justify-content-center" href="{{ route('product.details', ['id' => $product->id]) }}">Link</a>
               </li>
             @endif
             @endforeach  
-            <a class="btn-primary d-flex justify-content-center" href="{{ route('product.details', ['id' => $product->id]) }}">Link</a>
             </ul>
           </div>
         </div>

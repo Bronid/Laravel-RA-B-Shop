@@ -1,4 +1,7 @@
 <div class="container-fluid mt-5">
+@if(Session::has('message_error'))
+        <div class="alert alert-danger" role="alert">{{ Session::get('message_error') }}</div>
+    @endif
       <div class="row g-2">
 
       @foreach($products as $product)
@@ -6,7 +9,7 @@
         <div class="col-3">
           <div class="p-3">
             <div class="card">
-              <img src="images/products/Rozetka.png" class="card-img-top mt-2" alt="...">
+              <img src="images/products/{{$product->photo}}" class="card-img-top mt-2" alt="..." style="width: 350px; height:220px;">
               <div class="card-body">
                 <h5 class="product-title text-center">{{ $product->name }}</h5>
                 <div class="row align-items-center mt-3">

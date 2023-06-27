@@ -24,7 +24,8 @@
               <x-input-error :messages="$errors->get('password')" class="mt-2" />
               </div>
 
-              <a class="text-muted" href="{{ route('password.request') }}">Forgot password?</a>
+              <p><a class="text-muted" href="{{ route('password.request') }}">Forgot password?</a></p>
+              <p><a class="text-muted" href="{{ route('register') }}">Create account</a></p>
 
               <div class="d-grid">
                 <button type="submit" class="btn btn-gr">Login</button>

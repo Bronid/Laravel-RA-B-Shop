@@ -6,22 +6,26 @@ use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class AddProductComponent extends Component
 {
+    use WithFileUploads;
+
     public $name;
     public $short_disc;
     public $disc;
     public $price;
     public $quantity;
-    public $image;
+    public $photo;
 
     public function updated($fields){
         $this->validateOnly($fields, [
             'name'=>'required',
             'short_disc'=>'required',
             'price'=>'required|numeric',
-            'quantity'=>'required|numeric|min:1'
+            'quantity'=>'required|numeric|min:1',
+            'photo'=>'required'
         ]);
     }
 
@@ -30,7 +34,8 @@ class AddProductComponent extends Component
             'name'=>'required',
             'short_disc'=>'required',
             'price'=>'required|numeric',
-            'quantity'=>'required|numeric|min:1'
+            'quantity'=>'required|numeric|min:1',
+            'photo'=>'required'
         ]);
         $product = new Product();
         $product->name = $this->name;
@@ -38,9 +43,9 @@ class AddProductComponent extends Component
         $product->discription = $this->disc;
         $product->price = $this->price;
         $product->quantity = $this->quantity;
-        $imageName = Carbon::now()->timestamp.'.'.$this->image->extension();
-        $this->image->saveAs('products', $imageName);
-        $product->photo = $imageName;
+        $photoName = Carbon::now()->timestamp.'.'.$this->photo->extension();
+        $this->photo->storeAs('products', $photoName);
+        $product->photo = $photoName;
         $product->user_id = Auth::user()->id;
         $product->save();   
         session()->flash('message', 'Product has been created succesfully!');

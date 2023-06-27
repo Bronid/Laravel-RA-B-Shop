@@ -18,6 +18,16 @@ class CheckoutComponent extends Component
         $subtotal = (double)filter_var(Cart::subtotal(), FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
         var_dump($subtotal);
         if ((float)Auth::user()->balance - $subtotal >= 0) {
+
+            foreach (Cart::content() as $cart_product) {
+                $ownerproduct = Product::where('id', $cart_product->id)->first();
+                if ($ownerproduct->quantity - $cart_product->qty < 0) {
+                    session()->flash('message_error', 'Seller do not have enough items to sell!');
+                    redirect()->route('cart');
+                    return;
+                }
+            }
+
             $transaction_group = new TransactionGroup();
             $transaction_group->buyer_user_id = Auth::user()->id;
             $transaction_group->total = $subtotal;
@@ -28,12 +38,6 @@ class CheckoutComponent extends Component
             foreach (Cart::content() as $cart_product) {
                 $ownerproduct = Product::where('id', $cart_product->id)->first();
                 $owner = User::find($ownerproduct->user_id);
-
-                if ($ownerproduct->quantity - $cart_product->qty < 0) {
-                    session()->flash('message_error', 'Seller do not have enough items to sell!');
-                    redirect()->route('cart');
-                    return;
-                }
                 
                 $transaction = new Transaction();
                 $transaction->group_id = $transaction_group->id;

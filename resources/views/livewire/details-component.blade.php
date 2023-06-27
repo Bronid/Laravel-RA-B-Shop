@@ -2,8 +2,7 @@
     
     <div class="row" style="background-color: #fff;">
       <div class="col-md-6">
-        <div class="text-center p-4"> <img id="main-image" src="images/products/Mask.png" width="250" /> </div>
-        <div class="thumbnail text-center mb-3"> <img onclick="change_image(this)" src="images/products/Mask.png" width="70"> <img onclick="change_image(this)" src="images/products/Rozetka.png" width="70"> </div>
+        <div class="text-center p-4"> <img id="main-image" src="../images/products/{{$product->photo}}" width="250" /> </div>
       </div>
       <div class="col-md-6 text-center mt-4">
         <h2>{{ $product->name }}</h2>

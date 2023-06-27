@@ -53,7 +53,7 @@
       </div>
           @else
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{ route('login') }}"><img class="nav-ico-2"
+            <a class="nav-link active" aria-current="page" href="{{ route('register') }}"><img class="nav-ico-2"
                 src="../../images/icons/account.png"></img></a>
           </li>
           @endif

@@ -18,15 +18,17 @@
 
       @if(Cart::count() > 0)
       @foreach(Cart::content() as $item)
+
         <div class="card mb-3">
           <div class="row g-0">
             <div class="col-md-4">
-              <img src="images/products/Charger.png" class="img-fluid" alt="Товар">
+              <img src="../images/products/{{App\Models\Product::where('id', $item->id)->first()->photo}}" class="img-fluid" alt="image"
+              style="width: 300px; height:200px;">
             </div>
             <div class="col-md-8">
               <div class="card-body">
                 <h5 class="card-title">{{$item->model->name}}</h5>
-                Price:<b class="product-price-1 me-2"> {{$item->model->price}}</b>
+                Price:<b class="product-price-1 me-2"> {{$item->model->price}} zł</b>
                 <div class="quantity-button">
                 <div class="btn" wire:click.prevent="decreaseQuantity('{{ $item->rowId }}')">-</div>
                 <a> {{$item->qty}} </a>
@@ -48,7 +50,7 @@
         <div class="card mb-3">
           <div class="card-body">
             <h5 class="card-title">Number of products: {{Cart::count()}}</h5>
-            <h5 class="card-title">Summary: {{Cart::subtotal()}}zł</h5><h5 class="product-price-2 mb-3">
+            <h5 class="card-title">Summary: {{Cart::subtotal()}} zł</h5><h5 class="product-price-2 mb-3">
             <a href="{{ route('checkout') }}" class="btn btn-gr">Buy</a>
           </div>
         </div>

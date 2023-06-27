@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Product;
 use Livewire\Component;
 use Cart;
 
@@ -25,6 +26,7 @@ class CartComponent extends Component
 
     public function render()
     {
-        return view('livewire.cart-component');
+        $products = Product::paginate();
+        return view('livewire.cart-component', ['products' => $products]);
     }
 }

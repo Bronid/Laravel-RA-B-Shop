@@ -67,10 +67,8 @@
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 Name: {{ $user->name }} | Email: {{ $user->email }}  | Role: {{ $user->role }} | 
                 Balance: {{ $user->balance }} zł | Created at: {{ $user->created_at }}
-                <div>
                 <a class="btn btn-danger btn-sm me-2" href="{{ route('admin.deleteuser.dashboard', ['user_id'=>$user->id]) }}">Delete</a>
                 <a class="btn btn-gr btn-sm" href="{{ route('admin.edituser.dashboard', ['user_id'=>$user->id]) }}">Edit</a>
-                </div>
               </li>
             @endforeach
 

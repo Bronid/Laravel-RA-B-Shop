@@ -10,22 +10,21 @@
             @csrf
 
               <div class="mb-3">
-              <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+              <label for="email" class="form-label" :value="__('Email')">Email</label>
+            <x-text-input id="email" class="form-control" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
               </div>
 
               <div class="mb-3">
-              <x-input-label for="password" :value="__('Password')" />
-              <x-text-input id="password" class="block mt-1 w-full"
+              <label for="password" class="form-label" :value="__('Password')">Password</label>
+              <x-text-input id="password" class="form-control"
                             type="password"
                             name="password"
                             required autocomplete="new-password" />
               <x-input-error :messages="$errors->get('password')" class="mt-2" />
               </div>
 
-              <p><a class="text-muted" href="{{ route('password.request') }}">Forgot password?</a></p>
-              <p><a class="text-muted" href="{{ route('register') }}">Create account</a></p>
+              <p class="mb-3"><a href="{{ route('register') }}">Create account</a></p>
 
               <div class="d-grid">
                 <button type="submit" class="btn btn-gr">Login</button>

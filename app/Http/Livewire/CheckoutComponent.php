@@ -15,6 +15,7 @@ class CheckoutComponent extends Component
     
     public function mount()
     {
+        if (Auth::check()) {
         $subtotal = (double)filter_var(Cart::subtotal(), FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
         var_dump($subtotal);
         if ((float)Auth::user()->balance - $subtotal >= 0) {
@@ -61,6 +62,10 @@ class CheckoutComponent extends Component
             session()->flash('message_error', 'You do not have enough money!');
             redirect()->route('cart');
         }
+    }
+    else {
+        redirect()->route('login');
+    }
     }
 
     public function render()

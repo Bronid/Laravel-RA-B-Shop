@@ -52,6 +52,12 @@ This project serves as a simplified version of the popular OLX platform. It prov
     ```bash
     php artisan serve
     ```
+    ```bash
+    npm run dev
+    ```
+6. Check http://127.0.0.1:8000
+
+7. Done =)
 
 ## License
 
